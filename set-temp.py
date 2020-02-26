@@ -38,6 +38,9 @@ humidity = humiditytemperature[0]
 print "Date: ",date, "Time: ",exact_time , "Temperature: ",temperature,'C', "Humidity: ",humidity,'%'
 
 # User entry for temperature setting in degree C
+set_temp = 22
+
+'''
 set_temp = float(raw_input("Enter the Set Temerature for the Incubator: "))
 if set_temp > 80:
     print "You have set a target temperature above the threshold. Please enter a number below 80C"
@@ -56,6 +59,8 @@ elif 40 <= set_temp <= 80:
     print "Set Temperature:",set_temp
 else:
     print "User Set Temperature:",set_temp
+'''
+
 ###############################
 ## Save Data and Plot Figure ##
 ###############################
@@ -102,6 +107,7 @@ while True: #temperature != set_temp and i <= 20:
     humiditytemperature = Adafruit_DHT.read_retry(11,4) # Function for pulling the temp/humid data from DHT11
     temperature = humiditytemperature[1]
     humidity = humiditytemperature[0]
+    now = datetime.now()
     date = now.strftime("%Y/%d/%m") #The function for writing the date and time
     exact_time = now.strftime("%H:%M:%S")
     time.sleep(float(1)) # Wait for x seconds.
